@@ -17,3 +17,7 @@ return
 #BS:: ;Backspace
   Send {Volume_Mute}
 return
+
+^m::
+  SoundSet, 1, Microphone, mute
+return
