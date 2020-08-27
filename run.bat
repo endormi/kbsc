@@ -5,7 +5,7 @@
 
 echo Run files using an interactive CLI
 ping 127.0.0.1 -n 2 > nul
-echo Current choices are 0 (abbr), 1 (audiodevice), 2 (chr), 3 (erb), 4 (hiddenfiles), 5 (kbd), 6 (spotify), 7 (technical-abbrs) and 8 (volume).
+echo Current choices are 0 (abbr), 1 (audiodevice), 2 (chr), 3 (erb), 4 (hiddenfiles), 5 (kbd), 6 (macros), 7 (spotify), 8 (technical-abbrs) and 9 (volume).
 ping 127.0.0.1 -n 2 > nul
 set /p input="Type in the number of the file you want to use: "
 
@@ -38,20 +38,26 @@ if %input%==0 (
                       cd../
                       ) else (
                         if %input%==6 (
-                          echo Running spotify
-                          call spotify.ahk
+                          :: This could also be turn into a executable file
+                          echo Running macros
+                          macros.lua
                           ) else (
                             if %input%==7 (
-                              cd ./abbr
-                              echo Running technical-abbrs
-                              call technical-abbrs.ahk
-                              cd ../
+                              echo Running spotify
+                              call spotify.ahk
                               ) else (
                                 if %input%==8 (
-                                  echo Running volume
-                                  call volume.ahk
+                                  cd ./abbr
+                                  echo Running technical-abbrs
+                                  call technical-abbrs.ahk
+                                  cd ../
                                   ) else (
-                                    echo Not a valid choice!
+                                    if %input%==9 (
+                                      echo Running volume
+                                      call volume.ahk
+                                      ) else (
+                                        echo Not a valid choice!
+                                        )
                                     )
                                 )
                             )
