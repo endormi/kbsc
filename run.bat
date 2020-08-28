@@ -39,8 +39,10 @@ if %input%==0 (
                       ) else (
                         if %input%==6 (
                           :: This could also be turn into a executable file
+                          cd ./macros
                           echo Running macros
                           macros.lua
+                          cd ../
                           ) else (
                             if %input%==7 (
                               echo Running spotify
